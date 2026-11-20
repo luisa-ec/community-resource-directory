@@ -1,0 +1,1369 @@
+
+/* ============================================
+   WAYPOINT COMMUNITY RESOURCE DIRECTORY
+   Shared stylesheet — Teal Night Light
+   ============================================ */
+
+/* --------------------------------------------
+   1. DESIGN SYSTEM TOKENS
+   -------------------------------------------- */
+
+:root {
+
+    /* Brand colours */
+
+    --color-primary: #0F766E;
+    --color-primary-ink: #0B4F49;
+    --color-primary-soft: #D9F0EC;
+
+    /* Neutral colours */
+
+    --color-text: #1F2937;
+    --color-text-muted: #4B5563;
+
+    --color-border-strong: #6B7280;
+    --color-border: #9CA3AF;
+    --color-divider: #E5E7EB;
+
+    --color-surface: #F1F3F5;
+    --color-bg: #FFFFFF;
+
+    /* Feedback */
+
+    --color-error: #B91C1C;
+    --color-focus: #1D4ED8;
+
+    /* Typography */
+
+    --font-family: "Inter", system-ui, -apple-system,
+        "Segoe UI", Arial, sans-serif;
+
+    --font-regular: 400;
+    --font-semibold: 600;
+    --font-bold: 700;
+
+    /* Spacing */
+
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-6: 24px;
+    --space-8: 32px;
+    --space-12: 48px;
+    --space-16: 64px;
+
+    /* Borders */
+
+    --radius-small: 8px;
+    --radius-medium: 16px;
+    --radius-large: 24px;
+    --radius-pill: 999px;
+
+    /* Effects */
+
+    --shadow-card:
+        0 4px 16px rgba(31, 41, 55, 0.06);
+
+    --transition: 180ms ease;
+
+}
+
+/* --------------------------------------------
+   2. RESET AND GLOBAL STYLES
+   -------------------------------------------- */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+}
+
+body {
+    margin: 0;
+
+    background: var(--color-bg);
+    color: var(--color-text);
+
+    font-family: var(--font-family);
+    font-size: 16px;
+    font-weight: var(--font-regular);
+    line-height: 1.5;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+h1,
+h2,
+h3 {
+    margin-top: 0;
+    color: var(--color-text);
+}
+
+h1 {
+    margin-bottom: 16px;
+
+    font-size: 44px;
+    line-height: 48px;
+    font-weight: var(--font-bold);
+}
+
+h2 {
+    margin-bottom: 12px;
+
+    font-size: 28px;
+    line-height: 34px;
+    font-weight: var(--font-bold);
+}
+
+h3 {
+    margin-bottom: 10px;
+
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: var(--font-semibold);
+}
+
+p {
+    margin-top: 0;
+    color: var(--color-text-muted);
+}
+
+[hidden] {
+    display: none !important;
+}
+
+.container {
+    width: min(100% - 40px, 1180px);
+    margin-inline: auto;
+}
+
+.section {
+    padding-block: var(--space-16);
+}
+
+/* --------------------------------------------
+   3. ACCESSIBILITY
+   -------------------------------------------- */
+
+.visually-hidden {
+    position: absolute;
+
+    width: 1px;
+    height: 1px;
+
+    padding: 0;
+    margin: -1px;
+
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+
+    white-space: nowrap;
+    border: 0;
+}
+
+:focus-visible {
+    outline: 3px solid var(--color-focus);
+    outline-offset: 3px;
+}
+
+/* --------------------------------------------
+   4. HEADER AND FLOATING PILL NAVIGATION
+   -------------------------------------------- */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    padding: 14px 20px;
+
+    background: var(--color-primary-soft);
+}
+
+.header-content {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    max-width: 1100px;
+
+    padding: 10px 22px;
+
+    background: var(--color-bg);
+
+    border: 1px solid var(--color-divider);
+    border-radius: var(--radius-pill);
+
+    box-shadow: var(--shadow-card);
+}
+
+/* Brand/logo */
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    color: var(--color-text);
+
+    font-size: 20px;
+    font-weight: var(--font-bold);
+}
+
+.logo-icon {
+    display: grid;
+    place-items: center;
+
+    width: 36px;
+    height: 36px;
+
+    background: var(--color-primary);
+    color: var(--color-bg);
+
+    border-radius: 10px;
+
+    font-size: 18px;
+}
+
+/* Navigation */
+
+.main-navigation {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.main-navigation a {
+    padding: 9px 16px;
+
+    border-radius: var(--radius-pill);
+
+    color: var(--color-text);
+
+    font-size: 14px;
+    font-weight: var(--font-semibold);
+
+    transition:
+        background-color var(--transition),
+        color var(--transition);
+}
+
+.main-navigation a:hover {
+    background: var(--color-primary-soft);
+    color: var(--color-primary-ink);
+}
+
+.main-navigation a[aria-current="page"] {
+    background: var(--color-primary-soft);
+    color: var(--color-primary-ink);
+}
+
+/* Mobile menu button */
+
+.menu-toggle {
+    display: none;
+
+    width: 42px;
+    height: 42px;
+
+    padding: 9px;
+
+    background: var(--color-bg);
+
+    border: 1px solid var(--color-border-strong);
+    border-radius: var(--radius-small);
+}
+
+.menu-toggle span {
+    display: block;
+
+    width: 21px;
+    height: 2px;
+
+    margin: 4px auto;
+
+    background: var(--color-primary-ink);
+    border-radius: 2px;
+}
+
+/* --------------------------------------------
+   5. HERO SECTION
+   -------------------------------------------- */
+
+.hero,
+.page-hero {
+    background: var(--color-primary-soft);
+}
+
+.hero {
+    padding: 64px 0 72px;
+}
+
+.hero-content {
+    max-width: 900px;
+    text-align: center;
+}
+
+.eyebrow {
+    margin-bottom: var(--space-3);
+
+    color: var(--color-primary-ink);
+
+    font-size: 12px;
+    font-weight: var(--font-bold);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    max-width: 800px;
+    margin-inline: auto;
+}
+
+.hero-description {
+    max-width: 650px;
+    margin: 0 auto 28px;
+
+    color: var(--color-text-muted);
+
+    font-size: 18px;
+    line-height: 27px;
+}
+
+/* --------------------------------------------
+   6. BUTTONS
+   -------------------------------------------- */
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 44px;
+
+    padding: 11px 20px;
+
+    border: 1px solid transparent;
+    border-radius: var(--radius-pill);
+
+    font-size: 15px;
+    font-weight: var(--font-semibold);
+
+    transition:
+        transform var(--transition),
+        background-color var(--transition),
+        border-color var(--transition);
+}
+
+.button:hover {
+    transform: translateY(-2px);
+}
+
+.button-primary {
+    background: var(--color-primary);
+    color: #FFFFFF;
+}
+
+.button-primary:hover {
+    background: var(--color-primary-ink);
+}
+
+.button-outline {
+    background: #FFFFFF;
+
+    border-color: var(--color-primary);
+
+    color: var(--color-primary-ink);
+}
+
+.button-outline:hover {
+    background: var(--color-primary-soft);
+}
+
+.hero-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    margin-top: 24px;
+
+    color: var(--color-primary-ink);
+
+    font-size: 14px;
+    font-weight: var(--font-semibold);
+}
+
+.hero-link:hover {
+    text-decoration: underline;
+}
+
+/* --------------------------------------------
+   7. SEARCH FORM
+   -------------------------------------------- */
+
+.search-form {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    max-width: 780px;
+    margin: 0 auto;
+
+    padding: 8px;
+
+    background: #FFFFFF;
+
+    border: 1px solid var(--color-border-strong);
+    border-radius: var(--radius-pill);
+
+    box-shadow: var(--shadow-card);
+}
+
+.search-form input,
+.search-form select {
+    min-width: 0;
+    padding: 12px;
+
+    background: transparent;
+    border: none;
+
+    color: var(--color-text);
+}
+
+.search-form input {
+    flex: 1;
+}
+
+.search-form select {
+    flex: 0 0 180px;
+
+    border-left: 1px solid var(--color-divider);
+}
+
+.search-form input:focus,
+.search-form select:focus {
+    outline: none;
+}
+
+.search-form:focus-within {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px var(--color-primary-soft);
+}
+
+/* --------------------------------------------
+   8. SECTION HEADINGS
+   -------------------------------------------- */
+
+.section-heading {
+    margin-bottom: 28px;
+}
+
+.section-heading > p:last-child {
+    margin-bottom: 0;
+}
+
+.section-heading-row {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+/* --------------------------------------------
+   9. HOMEPAGE CATEGORY PILLS
+   -------------------------------------------- */
+
+.category-section {
+    background: var(--color-bg);
+}
+
+.category-pill-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.category-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+
+    min-height: 62px;
+
+    padding: 9px 18px 9px 9px;
+
+    background: #FFFFFF;
+
+    border: 1px solid var(--color-divider);
+    border-radius: var(--radius-pill);
+
+    color: var(--color-text);
+
+    font-size: 15px;
+    font-weight: var(--font-semibold);
+
+    transition:
+        transform var(--transition),
+        background-color var(--transition),
+        border-color var(--transition);
+}
+
+.category-pill:hover {
+    transform: translateY(-4px);
+
+    background: var(--color-primary-soft);
+
+    border-color: var(--color-primary);
+}
+
+.category-icon {
+    display: grid;
+    place-items: center;
+
+    flex: 0 0 42px;
+
+    width: 42px;
+    height: 42px;
+
+    background: var(--color-primary-soft);
+
+    border-radius: 50%;
+
+    color: var(--color-primary-ink);
+
+    font-weight: var(--font-bold);
+}
+
+.pill-arrow {
+    margin-left: 4px;
+    color: var(--color-primary);
+}
+
+/* --------------------------------------------
+   10. FEATURED RESOURCES AND RESOURCE CARDS
+   -------------------------------------------- */
+
+.featured-section,
+.resources-directory {
+    background: var(--color-surface);
+}
+
+.resource-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 20px;
+}
+
+.resource-card {
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+
+    background: #FFFFFF;
+
+    border: 1px solid var(--color-divider);
+    border-radius: var(--radius-medium);
+
+    box-shadow: var(--shadow-card);
+
+    transition:
+        transform var(--transition),
+        border-color var(--transition);
+}
+
+.resource-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--color-primary);
+}
+
+.resource-card__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+
+    min-height: 104px;
+    padding: 20px;
+
+    background: var(--color-primary-soft);
+}
+
+.resource-symbol {
+    display: grid;
+    place-items: center;
+
+    flex: 0 0 42px;
+
+    width: 42px;
+    height: 42px;
+
+    background: #FFFFFF;
+
+    border-radius: 50%;
+
+    color: var(--color-primary-ink);
+    font-weight: var(--font-bold);
+}
+
+.resource-tag {
+    padding: 5px 10px;
+
+    background: #FFFFFF;
+
+    border-radius: var(--radius-pill);
+
+    color: var(--color-primary-ink);
+
+    font-size: 12px;
+    font-weight: var(--font-semibold);
+}
+
+.resource-card__content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    padding: 20px;
+}
+
+.resource-card__content h3 {
+    margin-bottom: 10px;
+}
+
+.resource-card__content p {
+    font-size: 14px;
+    line-height: 21px;
+}
+
+.resource-location {
+    margin-top: auto;
+    padding-top: 12px;
+
+    color: var(--color-text-muted);
+
+    font-size: 13px;
+}
+
+.resource-card .button {
+    align-self: flex-start;
+    margin-top: 12px;
+}
+
+/* Search results */
+
+.results-message {
+    margin-bottom: 18px;
+
+    color: var(--color-text-muted);
+    font-size: 14px;
+}
+
+.empty-message {
+    margin-top: 24px;
+    padding: 24px;
+
+    background: #FFFFFF;
+
+    border: 1px dashed var(--color-border-strong);
+    border-radius: var(--radius-medium);
+
+    color: var(--color-text-muted);
+    text-align: center;
+}
+
+.notice {
+    padding: 16px;
+
+    background: var(--color-primary-soft);
+    border: 1px solid var(--color-primary);
+
+    border-radius: var(--radius-small);
+}
+
+/* --------------------------------------------
+   11. HOW IT WORKS
+   -------------------------------------------- */
+
+.how-section {
+    background: #FFFFFF;
+}
+
+.how-it-works-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 20px;
+}
+
+.step-card {
+    padding: 24px;
+
+    background: var(--color-surface);
+
+    border: 1px solid var(--color-divider);
+    border-radius: var(--radius-medium);
+}
+
+.step-number {
+    display: grid;
+    place-items: center;
+
+    width: 42px;
+    height: 42px;
+
+    margin-bottom: 20px;
+
+    background: var(--color-primary-soft);
+
+    border-radius: 50%;
+
+    color: var(--color-primary-ink);
+    font-weight: var(--font-bold);
+}
+
+.step-card h3 {
+    margin-bottom: 10px;
+}
+
+.step-card p {
+    margin-bottom: 0;
+    font-size: 14px;
+}
+
+/* --------------------------------------------
+   12. HOMEPAGE ABOUT PREVIEW
+   -------------------------------------------- */
+
+.about-preview {
+    background: var(--color-primary-soft);
+}
+
+.about-preview-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+}
+
+.about-preview-content > div {
+    max-width: 650px;
+}
+
+/* --------------------------------------------
+   13. PAGE HERO
+   Used on Resources and About
+   -------------------------------------------- */
+
+.page-hero {
+    padding: 56px 0;
+
+}
+
+.page-hero .container {
+    max-width: 1180px;
+}
+
+.page-hero p:last-child {
+    max-width: 650px;
+    margin-bottom: 0;
+
+    font-size: 17px;
+    line-height: 27px;
+}
+
+/* --------------------------------------------
+   14. RESOURCE DIRECTORY SEARCH
+   -------------------------------------------- */
+
+.directory-search {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(180px, 220px)
+        auto
+        auto;
+
+    align-items: end;
+    gap: 12px;
+
+    margin-bottom: 28px;
+    padding: 20px;
+
+    background: #FFFFFF;
+
+    border: 1px solid var(--color-divider);
+    border-radius: var(--radius-medium);
+
+    box-shadow: var(--shadow-card);
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.form-field label {
+    color: var(--color-text);
+
+    font-size: 14px;
+    font-weight: var(--font-semibold);
+}
+
+.form-field input,
+.form-field select {
+    width: 100%;
+    min-height: 44px;
+
+    padding: 10px 12px;
+
+    background: #FFFFFF;
+
+    border: 1px solid var(--color-border-strong);
+    border-radius: var(--radius-small);
+
+    color: var(--color-text);
+}
+
+.form-field input:focus,
+.form-field select:focus {
+    border-color: var(--color-primary);
+    outline: 3px solid var(--color-primary-soft);
+}
+
+/* --------------------------------------------
+   15. RESOURCE CATEGORY FILTER PILLS
+   -------------------------------------------- */
+
+.category-filters {
+    margin-bottom: 24px;
+}
+
+.filter-label {
+    margin-bottom: 12px;
+
+    color: var(--color-text);
+
+    font-size: 14px;
+    font-weight: var(--font-semibold);
+}
+
+.filter-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+}
+
+.filter-pill {
+    min-height: 40px;
+
+    padding: 8px 16px;
+
+    background: #FFFFFF;
+
+    border: 1px solid var(--color-border-strong);
+    border-radius: var(--radius-pill);
+
+    color: var(--color-text);
+
+    font-size: 13px;
+    font-weight: var(--font-semibold);
+
+    transition:
+        background-color var(--transition),
+        color var(--transition);
+}
+
+.filter-pill:hover {
+    background: var(--color-primary-soft);
+    border-color: var(--color-primary);
+}
+
+.filter-pill[aria-pressed="true"] {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+
+    color: #FFFFFF;
+}
+
+/* --------------------------------------------
+   16. ABOUT PAGE
+   -------------------------------------------- */
+
+.about-layout {
+    display: grid;
+
+    grid-template-columns:
+        1.4fr 0.8fr;
+
+    gap: 40px;
+    align-items: start;
+}
+
+.about-main p {
+    line-height: 1.8;
+}
+
+.about-highlight {
+    padding: 28px;
+
+    background: var(--color-primary-soft);
+
+    border-radius: var(--radius-medium);
+}
+
+.about-highlight h2 {
+    font-size: 22px;
+}
+
+.about-highlight p,
+.about-highlight li {
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.about-highlight ul {
+    padding-left: 20px;
+    margin-bottom: 0;
+}
+
+.about-highlight li {
+    margin-bottom: 10px;
+}
+
+.about-highlight li::marker {
+    color: var(--color-primary);
+}
+
+/* About category cards */
+
+.about-categories {
+    background: var(--color-surface);
+}
+
+.about-category-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 16px;
+}
+
+.about-category-card {
+    padding: 22px;
+
+    background: #FFFFFF;
+
+    border: 1px solid var(--color-divider);
+    border-radius: var(--radius-medium);
+
+    transition:
+        transform var(--transition),
+        border-color var(--transition);
+}
+
+.about-category-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--color-primary);
+}
+
+.about-category-card h3 {
+    color: var(--color-primary-ink);
+}
+
+.about-category-card p {
+    margin-bottom: 0;
+
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+/* How Waypoint works */
+
+.project-information {
+    background: var(--color-primary-soft);
+}
+
+.project-information p {
+    max-width: 750px;
+    line-height: 1.8;
+}
+
+.project-information .button {
+    margin-top: 12px;
+}
+
+/* --------------------------------------------
+   17. RESOURCE PROFILE DIALOG
+   -------------------------------------------- */
+
+.profile-dialog {
+    width: min(90%, 520px);
+    max-height: 85vh;
+
+    overflow-y: auto;
+
+    padding: 0;
+
+    background: #FFFFFF;
+    color: var(--color-text);
+
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-large);
+
+    box-shadow:
+        0 20px 60px rgba(31, 41, 55, 0.2);
+}
+
+.profile-dialog::backdrop {
+    background: rgba(31, 41, 55, 0.45);
+}
+
+.dialog-content {
+    padding: 32px;
+}
+
+.dialog-content h2 {
+    margin-bottom: 14px;
+}
+
+.dialog-content > p {
+    line-height: 1.7;
+}
+
+.profile-details {
+    margin: 24px 0;
+}
+
+.profile-details div {
+    padding: 12px 0;
+
+    border-bottom: 1px solid var(--color-divider);
+}
+
+.profile-details dt {
+    margin-bottom: 4px;
+
+    color: var(--color-text-muted);
+
+    font-size: 13px;
+    font-weight: var(--font-semibold);
+}
+
+.profile-details dd {
+    margin: 0;
+
+    color: var(--color-text);
+    font-size: 14px;
+}
+
+/* --------------------------------------------
+   18. FOOTER
+   -------------------------------------------- */
+
+.site-footer {
+    padding: 36px 0;
+
+    background: var(--color-surface);
+
+    border-top: 1px solid var(--color-divider);
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.footer-content p {
+    margin: 0;
+
+    font-size: 13px;
+}
+
+.footer-content nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.footer-content nav a {
+    color: var(--color-text);
+
+    font-size: 13px;
+    font-weight: var(--font-semibold);
+}
+
+.footer-content nav a:hover {
+    color: var(--color-primary);
+    text-decoration: underline;
+}
+
+/* --------------------------------------------
+   19. TABLET RESPONSIVE DESIGN
+   -------------------------------------------- */
+
+@media (max-width: 900px) {
+
+    .resource-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .category-grid,
+    .about-category-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .directory-search {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .directory-search > button {
+        width: 100%;
+    }
+
+    .about-layout {
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+    }
+
+}
+
+/* --------------------------------------------
+   20. MOBILE RESPONSIVE DESIGN
+   -------------------------------------------- */
+
+@media (max-width: 700px) {
+
+    .container {
+        width: min(100% - 32px, 1180px);
+    }
+
+    .site-header {
+        padding: 12px;
+    }
+
+    .header-content {
+        padding: 8px 12px;
+        border-radius: 22px;
+    }
+
+    .logo {
+        font-size: 17px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .main-navigation {
+        display: none;
+
+        position: absolute;
+
+        top: calc(100% + 8px);
+        left: 0;
+        right: 0;
+
+        flex-direction: column;
+        align-items: stretch;
+        gap: 4px;
+
+        padding: 12px;
+
+        background: #FFFFFF;
+
+        border: 1px solid var(--color-divider);
+        border-radius: var(--radius-medium);
+
+        box-shadow: var(--shadow-card);
+    }
+
+    .main-navigation.is-open {
+        display: flex;
+    }
+
+    .main-navigation a {
+        width: 100%;
+        padding: 12px 14px;
+
+        border-radius: var(--radius-small);
+    }
+
+    /* Hero */
+
+    .hero {
+        padding: 52px 0;
+    }
+
+    .hero h1 {
+        font-size: 30px;
+        line-height: 34px;
+    }
+
+    h2 {
+        font-size: 22px;
+        line-height: 28px;
+    }
+
+    .hero-description {
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    .page-hero {
+        padding: 42px 0;
+    }
+
+    /* Homepage search */
+
+    .search-form {
+        flex-direction: column;
+        align-items: stretch;
+
+        border-radius: var(--radius-medium);
+    }
+
+    .search-form input,
+    .search-form select {
+        width: 100%;
+        flex: auto;
+    }
+
+    .search-form select {
+        border-left: 0;
+        border-top: 1px solid var(--color-divider);
+    }
+
+    .search-form .button {
+        width: 100%;
+    }
+
+    /* Categories */
+
+    .category-pill-grid {
+        gap: 10px;
+    }
+
+    .category-pill {
+        flex: 1 1 220px;
+        min-height: 58px;
+    }
+
+    /* Resources */
+
+    .resource-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .directory-search {
+        grid-template-columns: 1fr;
+        padding: 16px;
+    }
+
+    .filter-pills {
+        gap: 8px;
+    }
+
+    .filter-pill {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+
+    /* Section headings */
+
+    .section-heading-row {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .about-preview-content {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    /* About page */
+
+    .about-layout,
+    .about-category-grid,
+    .how-it-works-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Footer */
+
+    .footer-content {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+}
+
+/* --------------------------------------------
+   21. SMALL MOBILE SCREENS
+   -------------------------------------------- */
+
+@media (max-width: 380px) {
+
+    .category-pill {
+        flex-basis: 100%;
+    }
+
+    .dialog-content {
+        padding: 22px;
+    }
+
+}
+
+/* --------------------------------------------
+   22. REDUCED MOTION
+   -------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+
+}

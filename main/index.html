@@ -1,0 +1,585 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Find community learning, health, employment, housing and youth support services through Waypoint."
+    >
+
+    <title>Waypoint | Community Resource Directory</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="styles.css">
+
+    <script src="script.js" defer></script>
+
+</head>
+
+<body data-page="home">
+
+    <!-- Header -->
+
+    <header class="site-header">
+
+        <div class="container header-content">
+
+            <a
+                class="logo"
+                href="index.html"
+                aria-label="Waypoint home"
+            >
+
+                <span class="logo-icon" aria-hidden="true">W</span>
+
+                <span>Waypoint</span>
+
+            </a>
+
+            <button
+                class="menu-toggle"
+                type="button"
+                aria-expanded="false"
+                aria-controls="primary-navigation"
+                aria-label="Open navigation menu"
+            >
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </button>
+
+            <nav
+                class="main-navigation"
+                id="primary-navigation"
+                aria-label="Main navigation"
+            >
+
+                <a href="index.html" aria-current="page">
+                    Home
+                </a>
+
+                <a href="resource.html">
+                    Resources
+                </a>
+
+                <a href="about.html">
+                    About
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+    <!-- Main content -->
+
+    <main id="main-content">
+
+        <!-- Hero section -->
+
+        <section class="hero" aria-labelledby="hero-heading">
+
+            <div class="container hero-content">
+
+                <p class="eyebrow">
+                    Community support, made easier
+                </p>
+
+                <h1 id="hero-heading">
+                    Find Community Support Services
+                </h1>
+
+                <p class="hero-description">
+                    Search local learning, health, job, housing
+                    and youth support in one place, even if you
+                    do not know which organisation to contact first.
+                </p>
+
+                <!-- Homepage search -->
+
+                <form
+                    class="search-form"
+                    id="home-search-form"
+                    role="search"
+                    action="resource.html"
+                    method="get"
+                >
+
+                    <label
+                        class="visually-hidden"
+                        for="home-search"
+                    >
+                        Search community resources
+                    </label>
+
+                    <input
+                        type="search"
+                        id="home-search"
+                        name="q"
+                        placeholder="Search community resources..."
+                    >
+
+                    <label
+                        class="visually-hidden"
+                        for="home-category"
+                    >
+                        Select a category
+                    </label>
+
+                    <select
+                        id="home-category"
+                        name="category"
+                    >
+
+                        <option value="all">
+                            All categories
+                        </option>
+
+                        <option value="Education">
+                            Education
+                        </option>
+
+                        <option value="Health">
+                            Health
+                        </option>
+
+                        <option value="Employment">
+                            Employment
+                        </option>
+
+                        <option value="Housing">
+                            Housing
+                        </option>
+
+                        <option value="Youth Support">
+                            Youth Support
+                        </option>
+
+                    </select>
+
+                    <button
+                        type="submit"
+                        class="button button-primary"
+                    >
+                        Search
+                    </button>
+
+                </form>
+
+                <a
+                    href="resource.html"
+                    class="hero-link"
+                >
+                    Browse community resources
+                    <span aria-hidden="true">→</span>
+                </a>
+
+            </div>
+
+        </section>
+
+        <!-- Browse by category -->
+
+        <section
+            class="section category-section"
+            aria-labelledby="category-heading"
+        >
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <p class="eyebrow">
+                        Explore support
+                    </p>
+
+                    <h2 id="category-heading">
+                        Browse by category
+                    </h2>
+
+                    <p>
+                        Choose the kind of support you need
+                        to discover relevant community services.
+                    </p>
+
+                </div>
+
+                <!-- Pill-style categories -->
+
+                <div class="category-pill-grid">
+
+                    <a
+                        class="category-pill"
+                        href="resource.html?category=Education"
+                    >
+
+                        <span class="category-icon" aria-hidden="true">
+                            E
+                        </span>
+
+                        <span>Education</span>
+
+                        <span class="pill-arrow" aria-hidden="true">
+                            →
+                        </span>
+
+                    </a>
+
+                    <a
+                        class="category-pill"
+                        href="resource.html?category=Health"
+                    >
+
+                        <span class="category-icon" aria-hidden="true">
+                            H
+                        </span>
+
+                        <span>Health</span>
+
+                        <span class="pill-arrow" aria-hidden="true">
+                            →
+                        </span>
+
+                    </a>
+
+                    <a
+                        class="category-pill"
+                        href="resource.html?category=Employment"
+                    >
+
+                        <span class="category-icon" aria-hidden="true">
+                            J
+                        </span>
+
+                        <span>Employment</span>
+
+                        <span class="pill-arrow" aria-hidden="true">
+                            →
+                        </span>
+
+                    </a>
+
+                    <a
+                        class="category-pill"
+                        href="resource.html?category=Housing"
+                    >
+
+                        <span class="category-icon" aria-hidden="true">
+                            H
+                        </span>
+
+                        <span>Housing</span>
+
+                        <span class="pill-arrow" aria-hidden="true">
+                            →
+                        </span>
+
+                    </a>
+
+                    <a
+                        class="category-pill"
+                        href="resource.html?category=Youth%20Support"
+                    >
+
+                        <span class="category-icon" aria-hidden="true">
+                            Y
+                        </span>
+
+                        <span>Youth Support</span>
+
+                        <span class="pill-arrow" aria-hidden="true">
+                            →
+                        </span>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Featured resources -->
+
+        <section
+            class="section featured-section"
+            aria-labelledby="featured-heading"
+        >
+
+            <div class="container">
+
+                <div class="section-heading section-heading-row">
+
+                    <div>
+
+                        <p class="eyebrow">
+                            Discover local services
+                        </p>
+
+                        <h2 id="featured-heading">
+                            Featured resources
+                        </h2>
+
+                        <p>
+                            Explore some of the community services
+                            available in the directory.
+                        </p>
+
+                    </div>
+
+                    <a
+                        href="resource.html"
+                        class="button button-outline"
+                    >
+                        View all resources
+                    </a>
+
+                </div>
+
+                <p
+                    class="results-message"
+                    id="results-message"
+                    aria-live="polite"
+                >
+                    Featured community resources
+                </p>
+
+                <!-- Six featured cards are generated by JavaScript -->
+
+                <div
+                    class="resource-grid"
+                    id="resource-grid"
+                >
+
+                </div>
+
+                <noscript>
+                    <p class="notice">
+                        JavaScript must be enabled to display
+                        the featured resource cards.
+                    </p>
+                </noscript>
+
+            </div>
+
+        </section>
+
+        <!-- How it works -->
+
+        <section
+            class="section how-section"
+            aria-labelledby="how-heading"
+        >
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <p class="eyebrow">
+                        Simple and accessible
+                    </p>
+
+                    <h2 id="how-heading">
+                        How it works
+                    </h2>
+
+                </div>
+
+                <div class="how-it-works-grid">
+
+                    <article class="step-card">
+
+                        <span class="step-number">01</span>
+
+                        <h3>Explore categories</h3>
+
+                        <p>
+                            Select an area of support
+                            that matches your needs.
+                        </p>
+
+                    </article>
+
+                    <article class="step-card">
+
+                        <span class="step-number">02</span>
+
+                        <h3>Find resources</h3>
+
+                        <p>
+                            Search or filter the directory
+                            to discover relevant services.
+                        </p>
+
+                    </article>
+
+                    <article class="step-card">
+
+                        <span class="step-number">03</span>
+
+                        <h3>View details</h3>
+
+                        <p>
+                            Open a resource profile to
+                            learn more about the service.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- About preview -->
+
+        <section
+            class="section about-preview"
+            aria-labelledby="preview-heading"
+        >
+
+            <div class="container about-preview-content">
+
+                <div>
+
+                    <p class="eyebrow">
+                        About Waypoint
+                    </p>
+
+                    <h2 id="preview-heading">
+                        Helping people find the support they need
+                    </h2>
+
+                    <p>
+                        Waypoint brings community information
+                        together in one place to make discovering
+                        local support services easier.
+                    </p>
+
+                </div>
+
+                <a
+                    href="about.html"
+                    class="button button-primary"
+                >
+                    Learn more about Waypoint
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+
+    <footer class="site-footer">
+
+        <div class="container footer-content">
+
+            <a class="logo" href="index.html">
+
+                <span class="logo-icon" aria-hidden="true">W</span>
+
+                <span>Waypoint</span>
+
+            </a>
+
+            <p>
+                A community resource directory prototype.
+            </p>
+
+            <p class="footer-note">
+                All resource information is fictional.
+            </p>
+
+            <nav aria-label="Footer navigation">
+
+                <a href="index.html">Home</a>
+
+                <a href="resource.html">Resources</a>
+
+                <a href="about.html">About</a>
+
+            </nav>
+
+        </div>
+
+    </footer>
+
+    <!-- Resource profile dialog -->
+
+    <dialog
+        class="profile-dialog"
+        id="profile-dialog"
+        aria-labelledby="dialog-title"
+    >
+
+        <div class="dialog-content">
+
+            <p class="eyebrow" id="dialog-category">
+                Resource profile
+            </p>
+
+            <h2 id="dialog-title"></h2>
+
+            <p id="dialog-description"></p>
+
+            <dl class="profile-details">
+
+                <div>
+                    <dt>Location</dt>
+                    <dd id="dialog-location"></dd>
+                </div>
+
+                <div>
+                    <dt>Opening hours</dt>
+                    <dd id="dialog-hours"></dd>
+                </div>
+
+                <div>
+                    <dt>Phone</dt>
+                    <dd id="dialog-phone"></dd>
+                </div>
+
+                <div>
+                    <dt>Support topics</dt>
+                    <dd id="dialog-tags"></dd>
+                </div>
+
+            </dl>
+
+            <button
+                class="button button-primary"
+                id="dialog-close"
+                type="button"
+            >
+                Close
+            </button>
+
+        </div>
+
+    </dialog>
+
+</body>
+
+</html>
